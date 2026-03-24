@@ -1,7 +1,5 @@
 # Challenge 03 — Production Debugging
 
-## Time: 60 minutes
-
 ## Scenario
 
 You have been paged. The e-commerce API has been experiencing issues for the past

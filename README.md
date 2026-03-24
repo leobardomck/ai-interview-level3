@@ -12,13 +12,11 @@ manually, and how to verify AI-generated output in high-stakes situations.
 
 ## Challenges
 
-| # | Challenge | Time | What It Tests |
-|---|-----------|------|---------------|
-| 01 | System Design & Implementation | 60 min | Designing and building a service from a spec using AI |
-| 02 | Legacy Code Migration | 45 min | Understanding legacy code and migrating to modern patterns |
-| 03 | Production Debugging | 60 min | Diagnosing and fixing interconnected bugs in a live system |
-
-**Total time: approximately 2-3 hours** (60 + 45 + 60 minutes)
+| # | Challenge | What It Tests |
+|---|-----------|---------------|
+| 01 | System Design & Implementation | Designing and building a service from a spec using AI |
+| 02 | Legacy Code Migration | Understanding legacy code and migrating to modern patterns |
+| 03 | Production Debugging | Diagnosing and fixing interconnected bugs in a live system |
 
 ## What We Evaluate
 

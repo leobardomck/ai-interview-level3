@@ -1,7 +1,5 @@
 # Challenge 02 — Legacy Code Migration
 
-## Time: 45 minutes
-
 ## Scenario
 
 You have inherited two legacy Node.js modules that use outdated patterns:

@@ -1,7 +1,5 @@
 # Challenge 01 — System Design & Implementation
 
-## Time: 60 minutes
-
 ## Scenario
 
 You have been given a product spec for a **Bookmark/Link Management API**. Your task
