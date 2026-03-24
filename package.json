@@ -1,0 +1,18 @@
+{
+  "name": "ai-interview-level3",
+  "version": "1.0.0",
+  "description": "AI-Assisted Engineering Interview — Level 3: AI Architecture",
+  "private": true,
+  "scripts": {
+    "test:02:legacy": "jest challenges/02-legacy-migration/__tests__/legacy.test.js",
+    "test:02:modern": "jest challenges/02-legacy-migration/__tests__/modern.test.js",
+    "test:02": "jest challenges/02-legacy-migration/__tests__/",
+    "test:03": "jest challenges/03-production-debugging/__tests__/integration.test.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "express": "^4.18.2",
+    "better-sqlite3": "^12.8.0"
+  }
+}

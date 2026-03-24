@@ -1,0 +1,48 @@
+[2026-03-24T14:05:22.510Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+    at listOnTimeout (node:internal/timers:569:17)
+    Context: Cache cleanup timer fired but 'this' is undefined
+[2026-03-24T14:10:34.223Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+    at listOnTimeout (node:internal/timers:569:17)
+[2026-03-24T14:15:22.445Z] ERROR SQLITE_CONSTRAINT: FOREIGN KEY constraint failed
+    at OrderService.createOrder (services/orderService.js:42:31)
+    Context: product_id=15 does not exist — error was caught by route handler
+[2026-03-24T14:18:01.667Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T14:22:15.669Z] ERROR Error: Product not found
+    at OrderService.createOrder (services/orderService.js:37:13)
+    Context: Caught by orders route, returned 200 OK instead of error
+[2026-03-24T14:28:45.112Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T14:31:45.889Z] ERROR Error: Insufficient inventory
+    at OrderService.createOrder (services/orderService.js:41:13)
+    Context: product_id=3, inventory=0, requested=2 — returned 200 to client
+[2026-03-24T14:35:33.445Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T14:42:01.778Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T14:48:33.224Z] ERROR Error: Insufficient inventory
+    at OrderService.createOrder (services/orderService.js:41:13)
+    Context: Swallowed by route — client received {"message":"Order processed successfully"}
+[2026-03-24T14:55:22.392Z] ERROR WARN: Negative inventory detected after concurrent update
+    product_id=18, expected_inventory=0, actual_inventory=-2
+    Context: Two concurrent orders passed inventory check before either decremented
+[2026-03-24T15:00:12.334Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+    Note: This error occurs every time a cache entry TTL expires — cleanup never works
+[2026-03-24T15:05:45.667Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T15:08:33.891Z] ERROR Error: Product not found
+    at OrderService.createOrder (services/orderService.js:37:13)
+    Context: Client received 200 OK — order silently failed
+[2026-03-24T15:10:22.112Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T15:12:45.334Z] WARN  Memory: RSS=520MB, heapUsed=341MB — approaching V8 heap limit
+[2026-03-24T15:15:00.004Z] ERROR CRITICAL: V8 heap nearing limit — cache store has 7201 entries that should have been evicted
+[2026-03-24T15:18:33.556Z] ERROR TypeError: Cannot read properties of undefined (reading 'delete')
+    at Timeout._onTimeout (services/cacheService.js:28:12)
+[2026-03-24T15:22:01.781Z] ERROR Audit: 224 order attempts returned HTTP 200 but have no corresponding database record
+    This indicates errors are being swallowed in the order creation endpoint
+[2026-03-24T15:25:00.113Z] ERROR Audit: 12 products have inventory < 0
+    This indicates race condition in inventory check + decrement (non-atomic)

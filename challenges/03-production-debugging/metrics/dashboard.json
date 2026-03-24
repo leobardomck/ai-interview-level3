@@ -1,0 +1,82 @@
+{
+  "period": "last_2_hours",
+  "generated_at": "2026-03-24T15:30:00Z",
+  "requests": {
+    "total": 15234,
+    "errors_5xx": 0,
+    "errors_4xx": 312,
+    "success_2xx": 14922
+  },
+  "response_times": {
+    "p50_ms": 45,
+    "p95_ms": 230,
+    "p99_ms": 1200,
+    "max_ms": 3400
+  },
+  "memory": {
+    "snapshots": [
+      { "time": "14:00", "heap_mb": 85 },
+      { "time": "14:15", "heap_mb": 112 },
+      { "time": "14:30", "heap_mb": 142 },
+      { "time": "14:45", "heap_mb": 189 },
+      { "time": "15:00", "heap_mb": 223 },
+      { "time": "15:15", "heap_mb": 289 },
+      { "time": "15:30", "heap_mb": 341 }
+    ],
+    "trend": "monotonically_increasing",
+    "gc_runs": 847,
+    "gc_reclaimed_mb": 12
+  },
+  "cache": {
+    "entries_at_start": 0,
+    "entries_at_end": 7201,
+    "evictions": 0,
+    "ttl_configured_ms": 30000,
+    "note": "Zero evictions despite 30s TTL over 2-hour window"
+  },
+  "orders": {
+    "attempted": 1847,
+    "successful_in_db": 1623,
+    "successful_response": 1847,
+    "discrepancy": 224,
+    "inventory_violations": 12,
+    "negative_inventory_products": [3, 7, 11, 18, 22, 25, 28, 31, 35, 40, 44, 48]
+  },
+  "rate_limiting": {
+    "config_max_per_minute": 100,
+    "actual_max_observed": 101,
+    "blocked_requests": 487,
+    "note": "Clients consistently able to make 101 requests before being blocked"
+  },
+  "auth": {
+    "valid_tokens": 14922,
+    "invalid_or_missing_tokens": 312,
+    "requests_served_without_valid_token": 278,
+    "user_mismatch_in_orders": 34,
+    "note": "34 orders attributed to wrong user — requests with expired/missing tokens used cached user identity"
+  },
+  "endpoints": {
+    "POST /api/orders": {
+      "total": 1847,
+      "status_201": 1623,
+      "status_200": 224,
+      "status_400": 15,
+      "status_500": 0,
+      "note": "224 requests returned 200 instead of error status — these orders do not exist in DB"
+    },
+    "GET /api/orders": {
+      "total": 3421,
+      "status_200": 3421
+    },
+    "POST /api/users": {
+      "total": 892,
+      "status_201": 845,
+      "status_409": 38,
+      "status_400": 9
+    },
+    "GET /health": {
+      "total": 120,
+      "status_200": 120
+    }
+  }
+}

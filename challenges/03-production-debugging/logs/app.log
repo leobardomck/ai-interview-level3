@@ -1,0 +1,74 @@
+[2026-03-24T14:00:01.234Z] INFO  Server started on port 3000
+[2026-03-24T14:00:01.240Z] INFO  Database connected: ./data/shop.db
+[2026-03-24T14:00:01.245Z] INFO  Rate limiter configured: 100 requests per 60s window
+[2026-03-24T14:00:03.102Z] INFO  GET /health — 200 (2ms)
+[2026-03-24T14:00:15.334Z] INFO  POST /api/users — 201 (12ms)
+[2026-03-24T14:00:18.221Z] INFO  POST /api/users — 201 (8ms)
+[2026-03-24T14:01:02.445Z] INFO  POST /api/orders — 201 — user_id=1, product_id=3, qty=2
+[2026-03-24T14:01:03.112Z] INFO  POST /api/orders — 201 — user_id=2, product_id=5, qty=1
+[2026-03-24T14:01:45.667Z] INFO  GET /api/orders — 200 — user_id=1, count=1
+[2026-03-24T14:02:12.890Z] INFO  POST /api/orders — 201 — user_id=1, product_id=7, qty=3
+[2026-03-24T14:03:01.123Z] INFO  Memory snapshot: heap_used=85MB, heap_total=120MB
+[2026-03-24T14:05:22.334Z] INFO  POST /api/orders — 201 — user_id=2, product_id=3, qty=1
+[2026-03-24T14:05:22.401Z] INFO  POST /api/orders — 201 — user_id=2, product_id=3, qty=1
+[2026-03-24T14:05:22.412Z] WARN  Inventory check: product_id=3 inventory=1, requested=1 — PASSED
+[2026-03-24T14:05:22.445Z] WARN  Inventory check: product_id=3 inventory=1, requested=1 — PASSED
+[2026-03-24T14:05:22.501Z] INFO  Inventory updated: product_id=3 new_inventory=0
+[2026-03-24T14:05:22.512Z] WARN  Inventory update: product_id=3 new_inventory=-1
+[2026-03-24T14:08:33.778Z] INFO  POST /api/orders — 200 — user_id=1, product_id=12, qty=5
+[2026-03-24T14:08:33.780Z] WARN  Order creation returned 200 but no order ID in response
+[2026-03-24T14:10:01.234Z] INFO  Cache stats: entries=342, estimated_size=2.1MB
+[2026-03-24T14:15:02.891Z] INFO  GET /api/orders — 200 — user_id=2, count=3
+[2026-03-24T14:18:44.556Z] INFO  POST /api/orders — 201 — user_id=3, product_id=8, qty=2
+[2026-03-24T14:19:01.223Z] WARN  Order user_id mismatch: token belongs to user_id=3 but order created for user_id=1
+[2026-03-24T14:19:01.225Z] INFO  POST /api/orders — 201 — user_id=1, product_id=9, qty=1
+[2026-03-24T14:22:15.667Z] INFO  POST /api/orders — 200 — user_id=2, product_id=15, qty=10
+[2026-03-24T14:22:15.670Z] WARN  Order response 200 with generic success but product_id=15 not found in DB
+[2026-03-24T14:25:33.890Z] INFO  Memory snapshot: heap_used=142MB, heap_total=200MB
+[2026-03-24T14:25:34.001Z] WARN  Memory growth detected: +57MB in 22 minutes
+[2026-03-24T14:28:01.445Z] INFO  Cache stats: entries=1204, estimated_size=7.8MB
+[2026-03-24T14:30:00.112Z] INFO  GET /health — 200 (1ms)
+[2026-03-24T14:30:12.334Z] INFO  POST /api/orders — 201 — user_id=2, product_id=20, qty=1
+[2026-03-24T14:31:45.778Z] INFO  POST /api/orders — 201 — user_id=4, product_id=3, qty=2
+[2026-03-24T14:31:45.890Z] WARN  Inventory check: product_id=3 inventory=0, requested=2 — FAILED
+[2026-03-24T14:31:45.891Z] INFO  POST /api/orders — 200 — response body: {"message":"Order processed successfully"}
+[2026-03-24T14:35:22.112Z] INFO  Rate limiter: client 10.0.0.45 — request 100 of 100
+[2026-03-24T14:35:22.115Z] INFO  Rate limiter: client 10.0.0.45 — request 101 of 100 — ALLOWED
+[2026-03-24T14:35:22.220Z] INFO  Rate limiter: client 10.0.0.45 — request 102 of 100 — BLOCKED (429)
+[2026-03-24T14:38:01.334Z] WARN  Order user_id mismatch: request had no auth token but order created for user_id=4
+[2026-03-24T14:38:01.336Z] INFO  POST /api/orders — 201 — user_id=4, product_id=22, qty=1
+[2026-03-24T14:40:55.667Z] INFO  Cache stats: entries=2891, estimated_size=18.4MB
+[2026-03-24T14:40:55.670Z] WARN  Cache size growing abnormally — expected cleanup not occurring
+[2026-03-24T14:42:12.445Z] INFO  POST /api/orders — 201 — user_id=5, product_id=11, qty=1
+[2026-03-24T14:45:00.112Z] INFO  Memory snapshot: heap_used=223MB, heap_total=300MB
+[2026-03-24T14:45:00.115Z] WARN  Memory growth: +81MB in 20 minutes (total +138MB since start)
+[2026-03-24T14:48:33.223Z] INFO  POST /api/orders — 200 — user_id=5, product_id=30, qty=3
+[2026-03-24T14:48:33.225Z] WARN  Order response 200 but orderService.createOrder threw: "Insufficient inventory"
+[2026-03-24T14:50:01.890Z] INFO  Cache stats: entries=4102, estimated_size=26.1MB
+[2026-03-24T14:52:15.334Z] WARN  Order user_id mismatch: token=tok_abc123 is user_id=2 but previous cached user_id=5 was used
+[2026-03-24T14:55:22.112Z] INFO  POST /api/orders — 201 — user_id=2, product_id=18, qty=2
+[2026-03-24T14:55:22.334Z] INFO  POST /api/orders — 201 — user_id=2, product_id=18, qty=2
+[2026-03-24T14:55:22.340Z] WARN  Inventory check: product_id=18 inventory=2, requested=2 — PASSED (concurrent)
+[2026-03-24T14:55:22.345Z] WARN  Inventory check: product_id=18 inventory=2, requested=2 — PASSED (concurrent)
+[2026-03-24T14:55:22.390Z] INFO  Inventory updated: product_id=18 new_inventory=0
+[2026-03-24T14:55:22.395Z] WARN  Inventory update: product_id=18 new_inventory=-2
+[2026-03-24T14:58:01.667Z] INFO  GET /api/orders/all — 200 — total_orders=1623
+[2026-03-24T15:00:00.112Z] INFO  Memory snapshot: heap_used=289MB, heap_total=380MB
+[2026-03-24T15:00:00.115Z] WARN  Memory growth critical: +204MB since start
+[2026-03-24T15:02:45.445Z] INFO  Cache stats: entries=5834, estimated_size=37.2MB
+[2026-03-24T15:02:45.447Z] WARN  Cache entries only growing — TTL cleanup appears non-functional
+[2026-03-24T15:05:12.223Z] WARN  Customer complaint: order #1589 shows wrong user — investigating
+[2026-03-24T15:08:33.890Z] INFO  POST /api/orders — 200 — user_id=3, product_id=25, qty=1
+[2026-03-24T15:08:33.892Z] WARN  Order appeared successful (200) but not found in orders table
+[2026-03-24T15:10:01.112Z] WARN  Multiple customer complaints about charges without orders
+[2026-03-24T15:15:00.001Z] INFO  Memory snapshot: heap_used=341MB, heap_total=440MB
+[2026-03-24T15:15:00.003Z] WARN  CRITICAL: Memory usage exceeds 300MB threshold
+[2026-03-24T15:15:00.005Z] WARN  Cache entries: 7201, no entries have been evicted since startup
+[2026-03-24T15:18:22.334Z] INFO  POST /api/orders — 201 — user_id=6, product_id=14, qty=1
+[2026-03-24T15:20:45.556Z] WARN  Order user_id mismatch detected again: expected user_id=7, got user_id=6
+[2026-03-24T15:22:01.778Z] INFO  Total requests served: 15234
+[2026-03-24T15:22:01.780Z] INFO  Orders attempted: 1847, Orders in DB: 1623, Delta: 224
+[2026-03-24T15:22:01.782Z] WARN  224 orders returned 200 OK but were never persisted
+[2026-03-24T15:25:00.112Z] WARN  Inventory violations detected: 12 products have negative inventory
+[2026-03-24T15:28:33.445Z] INFO  Rate limiter stats: max observed 101 per window (configured: 100)
+[2026-03-24T15:30:00.001Z] WARN  Memory usage continues to climb — considering restart
