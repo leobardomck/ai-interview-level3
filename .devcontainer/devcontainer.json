@@ -2,12 +2,11 @@
   "name": "AI Interview Environment",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
-  // Pre-install VS Code extensions the candidate will need
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vsliveshare.vsliveshare",         // Live Share — for you to observe
-        "github.copilot-chat",                 // AI chat sidebar
+        "ms-vsliveshare.vsliveshare",       // Live Share — for you to observe
+        "continue.continue",                 // Continue.dev — AI chat + autocomplete
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "eamodio.gitlens"
@@ -20,15 +19,14 @@
     }
   },
 
-  // Runs once when the environment first boots
-  "postCreateCommand": "npm install",
+  // Runs once on first boot — installs deps AND writes Continue config with the API key
+  "postCreateCommand": "npm install && mkdir -p ~/.continue && cat > ~/.continue/config.yaml << 'EOF'\nname: Interview Config\nversion: 0.0.1\nschema: v1\nmodels:\n  - name: Claude Sonnet\n    provider: anthropic\n    model: claude-sonnet-4-20250514\n    apiKey: ${ANTHROPIC_API_KEY}\n    roles:\n      - chat\n      - edit\n      - apply\nEOF",
 
-  // Your Anthropic key is injected here from Ona secrets — candidate never sees it
+  // Your key is injected from Codespaces secret — candidate never sees it
   "remoteEnv": {
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}"
   },
 
-  // Ports to auto-forward (adjust to match your challenge's dev server)
   "forwardPorts": [3000, 8080],
   "portsAttributes": {
     "3000": { "label": "App", "onAutoForward": "openPreview" }
