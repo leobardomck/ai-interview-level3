@@ -1,0 +1,36 @@
+{
+  "name": "AI Interview Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+
+  // Pre-install VS Code extensions the candidate will need
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vsliveshare.vsliveshare",         // Live Share — for you to observe
+        "github.copilot-chat",                 // AI chat sidebar
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  // Runs once when the environment first boots
+  "postCreateCommand": "npm install",
+
+  // Your Anthropic key is injected here from Ona secrets — candidate never sees it
+  "remoteEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}"
+  },
+
+  // Ports to auto-forward (adjust to match your challenge's dev server)
+  "forwardPorts": [3000, 8080],
+  "portsAttributes": {
+    "3000": { "label": "App", "onAutoForward": "openPreview" }
+  }
+}
